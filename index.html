@@ -1,0 +1,951 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PIERDE EL QUE SE RINDE · Protege tu cuenta fondeada</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<link rel="stylesheet" href="css/landing.css">
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav" id="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <div class="nav-logo-icon"><i class="fa-solid fa-shield-halved"></i></div>
+      <span class="nav-brand-short">PIERDE EL QUE SE RINDE</span>
+    </div>
+    <div class="nav-links">
+      <a href="#como-funciona">Cómo funciona</a>
+      <a href="#precios">Precios</a>
+      <a href="#testimonios">Testimonios</a>
+    </div>
+    <div class="nav-actions">
+      <button class="btn-nav-ghost" onclick="openModal('login')">Iniciar sesión</button>
+      <button class="btn-nav-red" onclick="openModal('register')">Empezar gratis</button>
+    </div>
+    <button class="hamburger" onclick="toggleMobileNav()"><i class="fa-solid fa-bars"></i></button>
+  </div>
+  <div class="mobile-nav" id="mobile-nav">
+    <a href="#como-funciona" onclick="toggleMobileNav()">Cómo funciona</a>
+    <a href="#precios" onclick="toggleMobileNav()">Precios</a>
+    <button class="btn-nav-ghost" onclick="openModal('login')">Iniciar sesión</button>
+    <button class="btn-nav-red" onclick="openModal('register')">Crear cuenta</button>
+  </div>
+</nav>
+
+<!-- MOTIVATIONAL TICKER -->
+<div class="motive-ticker">
+  <div class="motive-ticker-inner">
+    <span>💪 El que no se rinde, gana.</span>
+    <span>🔥 Cada pérdida es una lección, no el final.</span>
+    <span>🚀 Los grandes traders caen y vuelven a levantarse.</span>
+    <span>⚡ La disciplina separa a los ganadores de los que se rinden.</span>
+    <span>🏆 Un día más operando es un día más aprendiendo.</span>
+    <span>💡 El fracaso es el primer paso hacia el éxito.</span>
+    <span>💪 El que no se rinde, gana.</span>
+    <span>🔥 Cada pérdida es una lección, no el final.</span>
+    <span>🚀 Los grandes traders caen y vuelven a levantarse.</span>
+    <span>⚡ La disciplina separa a los ganadores de los que se rinden.</span>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+  <canvas id="hero-canvas"></canvas>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><div class="live-dot"></div>Más de 200 traders que no se rindieron</div>
+    <h1 class="hero-title">
+      <span class="hero-title-brand">PIERDE EL QUE SE RINDE</span><br>
+      <span class="hero-title-red">no el que sigue intentando.</span>
+    </h1>
+    <p class="hero-sub">El bloqueador automático #1 para cuentas FundingPips, FTMO y más. Cuando llegas al límite de pérdida, cerramos todo y bloqueamos tu acceso por 5 horas — en todos tus dispositivos. Porque los que persisten, triunfan.</p>
+    <div class="hero-quote-box">
+      <i class="fa-solid fa-quote-left"></i>
+      <span>"No fracasas cuando pierdes una operación. Fracasas cuando dejas de intentarlo."</span>
+    </div>
+    <div class="hero-actions">
+      <button class="btn-hero-red" onclick="openModal('register')">
+        <i class="fa-solid fa-rocket"></i> Empezar GRATIS
+      </button>
+      <button class="btn-hero-ghost" onclick="document.getElementById('como-funciona').scrollIntoView({behavior:'smooth'})">
+        <i class="fa-solid fa-play"></i> Ver cómo funciona
+      </button>
+    </div>
+    <div class="hero-social-proof">
+      <div class="proof-item"><span class="proof-num">200+</span><span class="proof-lbl">Traders activos</span></div>
+      <div class="proof-div"></div>
+      <div class="proof-item"><span class="proof-num">$2.4M</span><span class="proof-lbl">En cuentas protegidas</span></div>
+      <div class="proof-div"></div>
+      <div class="proof-item"><span class="proof-num">98%</span><span class="proof-lbl">Cuentas salvadas</span></div>
+    </div>
+  </div>
+  <div class="hero-mockup">
+    <div class="mockup-window">
+      <div class="mockup-bar"><span></span><span></span><span></span></div>
+      <div class="mockup-content">
+        <div class="mockup-label">Riesgo diario consumido</div>
+        <div class="mockup-bar-wrap">
+          <div class="mockup-bar-fill" id="mockup-fill"></div>
+        </div>
+        <div class="mockup-stats">
+          <div class="mockup-stat"><span class="ms-l">Balance</span><span class="ms-v">$10,000</span></div>
+          <div class="mockup-stat"><span class="ms-l">P&L hoy</span><span class="ms-v red">-$87</span></div>
+          <div class="mockup-stat"><span class="ms-l">Límite</span><span class="ms-v red">$100</span></div>
+        </div>
+        <div class="mockup-alert">
+          <i class="fa-solid fa-shield-halved"></i>
+          <span>Cuenta bloqueada · 04:23:11 restantes</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LOGOS PROP FIRMS -->
+<section class="firms">
+  <div class="firms-inner">
+    <p class="firms-label">Compatible con las principales prop firms</p>
+    <div class="firms-list">
+      <span>FundingPips</span>
+      <span>FTMO</span>
+      <span>The5%ers</span>
+      <span>MyFundedFX</span>
+      <span>Apex Trader</span>
+      <span>E8 Markets</span>
+    </div>
+  </div>
+</section>
+
+<!-- FRASE MOTIVACIONAL BANNER -->
+<section class="motive-banner">
+  <div class="motive-banner-inner">
+    <div class="motive-banner-icon"><i class="fa-solid fa-fire"></i></div>
+    <div class="motive-banner-text">
+      <h3>"La diferencia entre un trader exitoso y uno que se rinde es simple: el exitoso se cayó una vez más, y se levantó dos veces más."</h3>
+      <p>— Esa es la filosofía que te protegemos a vivir cada día.</p>
+    </div>
+  </div>
+</section>
+
+<!-- COMO FUNCIONA -->
+<section class="how" id="como-funciona">
+  <div class="section-inner">
+    <div class="section-tag">Cómo funciona</div>
+    <h2 class="section-title">Tres pasos para proteger<br>tu capital — y tu mentalidad</h2>
+    <div class="steps-grid">
+      <div class="step-card">
+        <div class="step-num">01</div>
+        <div class="step-icon green"><i class="fa-solid fa-plug"></i></div>
+        <h3>Conecta tu cuenta MT5</h3>
+        <p>Vincula tu cuenta de FundingPips, FTMO o cualquier prop firm vía MetaApi. Toma menos de 3 minutos. <em>"El primer paso siempre es el más difícil. Dalo."</em></p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">02</div>
+        <div class="step-icon amber"><i class="fa-solid fa-sliders"></i></div>
+        <h3>Configura tu límite</h3>
+        <p>Define tu pérdida máxima diaria. Recomendamos 1% para cuentas fondeadas. <em>"Un trader disciplinado protege su capital como un guerrero protege su posición."</em></p>
+      </div>
+      <div class="step-card">
+        <div class="step-num">03</div>
+        <div class="step-icon red"><i class="fa-solid fa-shield-halved"></i></div>
+        <h3>Opera con tranquilidad</h3>
+        <p>Al tocar el límite, cerramos todas tus posiciones y bloqueamos tu acceso por 5 horas. Sin excepciones. <em>"Los límites no te frenan. Te salvan."</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="section-inner">
+    <div class="feat-grid">
+      <div class="feat-text">
+        <div class="section-tag">Características</div>
+        <h2 class="section-title left">Diseñado para traders<br>que no se rinden<br>ante el mercado</h2>
+        <div class="feat-list">
+          <div class="feat-item"><div class="feat-icon green"><i class="fa-solid fa-lock"></i></div><div><strong>Bloqueo real de 5 horas</strong><p>No es solo visual. Bloquea desde el servidor — no puedes manipularlo ni desde laptop, ni desde celular. Porque tú lo pediste.</p></div></div>
+          <div class="feat-item"><div class="feat-icon blue"><i class="fa-solid fa-mobile-screen"></i></div><div><strong>Multi-dispositivo</strong><p>Un solo bloqueo aplica en todos tus dispositivos simultáneamente. Sin escapatoria. Sin excusas.</p></div></div>
+          <div class="feat-item"><div class="feat-icon amber"><i class="fa-solid fa-chart-column"></i></div><div><strong>Historial completo</strong><p>Ve tu P&L diario, semana a semana. Cada número te cuenta una historia. Cada semana es una oportunidad de mejorar.</p></div></div>
+          <div class="feat-item"><div class="feat-icon red"><i class="fa-solid fa-bell"></i></div><div><strong>Alertas inteligentes</strong><p>Notificaciones al 50%, 75% y 100% del límite. Porque el trader inteligente actúa antes de que sea tarde.</p></div></div>
+        </div>
+      </div>
+      <div class="feat-image">
+        <img src="https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&q=80" alt="Dashboard">
+        <div class="feat-image-badge"><i class="fa-solid fa-shield-halved"></i> Protección activa</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOTIVE STRIP -->
+<section class="motive-strip">
+  <div class="motive-strip-inner">
+    <div class="motive-strip-item"><i class="fa-solid fa-bolt"></i><span>"Cada día que operas con disciplina es una victoria."</span></div>
+    <div class="motive-strip-item"><i class="fa-solid fa-brain"></i><span>"Tu mayor enemigo en el trading eres tú mismo. Nosotros te ayudamos a controlarte."</span></div>
+    <div class="motive-strip-item"><i class="fa-solid fa-trophy"></i><span>"Los campeones no nacen con suerte. Se forjan con consistencia."</span></div>
+  </div>
+</section>
+
+<!-- PRECIOS -->
+<section class="pricing" id="precios">
+  <div class="section-inner">
+    <div class="section-tag">Precios</div>
+    <h2 class="section-title">Elige tu plan y empieza hoy</h2>
+    <p class="section-sub">Comienza gratis. Cancela cuando quieras. Sin contratos. Sin sorpresas.</p>
+    <div class="pricing-grid three-cols">
+
+      <!-- FREE -->
+      <div class="pricing-card">
+        <div class="plan-badge free-badge">Gratis</div>
+        <div class="plan-price free-price">$0<span>/mes</span><div class="plan-price-sol free-sol">S/ 0<span class="sol-sub">/mes</span></div></div>
+        <div class="plan-desc">Para empezar a conocernos — cuentas de $5K a $10K</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><i class="fa-solid fa-check"></i> 1 cuenta MT5 conectada</li>
+          <li><i class="fa-solid fa-check"></i> Bloqueo automático al límite configurado</li>
+          <li><i class="fa-solid fa-check"></i> Bloqueo de 5 horas multi-dispositivo</li>
+          <li><i class="fa-solid fa-check"></i> Dashboard en tiempo real</li>
+          <li><i class="fa-solid fa-check"></i> Historial básico de P&L</li>
+          <li><i class="fa-solid fa-times muted"></i> Reglas avanzadas</li>
+          <li><i class="fa-solid fa-times muted"></i> Soporte prioritario</li>
+        </ul>
+        <div class="plan-motive">"El primer paso cuesta $0. El valor de darlo: incalculable."</div>
+        <button class="plan-btn ghost" onclick="openModal('register')">Empezar gratis</button>
+      </div>
+
+      <!-- STARTER -->
+      <div class="pricing-card">
+        <div class="plan-badge">Starter</div>
+        <div class="plan-price">$5.99<span>/mes</span><div class="plan-price-sol" id="sol-starter">S/ <span class="sol-val sol-starter">...</span><span class="sol-sub">/mes</span></div></div>
+        <div class="plan-desc">Para traders en crecimiento — cuentas de $1K a $50K</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><i class="fa-solid fa-check"></i> 2 a 3 cuentas MT5 conectadas</li>
+          <li><i class="fa-solid fa-check"></i> Bloqueo automático al límite configurado</li>
+          <li><i class="fa-solid fa-check"></i> Bloqueo de 5 horas multi-dispositivo</li>
+          <li><i class="fa-solid fa-check"></i> Dashboard en tiempo real</li>
+          <li><i class="fa-solid fa-check"></i> Historial de P&L diario</li>
+          <li><i class="fa-solid fa-check"></i> Alertas al 50% y 75% del límite</li>
+          <li><i class="fa-solid fa-check"></i> Soporte por email</li>
+        </ul>
+        <div class="plan-motive">"Quien invierte en disciplina, cosecha libertad financiera."</div>
+        <button class="plan-btn ghost" onclick="openPay()">Ver métodos de pago</button>
+      </div>
+
+      <!-- PRO -->
+      <div class="pricing-card featured">
+        <div class="plan-popular">MÁS POPULAR</div>
+        <div class="plan-badge">Pro</div>
+        <div class="plan-price">$12.99<span>/mes</span><div class="plan-price-sol" id="sol-pro">S/ <span class="sol-val sol-pro">...</span><span class="sol-sub">/mes</span></div></div>
+        <div class="plan-desc">Para traders serios — cuentas de $50K a $200K</div>
+        <div class="plan-divider"></div>
+        <ul class="plan-features">
+          <li><i class="fa-solid fa-check"></i> 4 a 8 cuentas MT5 conectadas</li>
+          <li><i class="fa-solid fa-check"></i> Todo lo del plan Starter</li>
+          <li><i class="fa-solid fa-check"></i> Reglas avanzadas (3 pérdidas seguidas, días rojos)</li>
+          <li><i class="fa-solid fa-check"></i> Plan de trading ICT/SMC integrado</li>
+          <li><i class="fa-solid fa-check"></i> Checklist pre-trade interactivo</li>
+          <li><i class="fa-solid fa-check"></i> Alertas push en tiempo real</li>
+          <li><i class="fa-solid fa-check"></i> Soporte prioritario por WhatsApp</li>
+        </ul>
+        <div class="plan-motive">"Los grandes traders se protegen a lo grande. Tú también puedes."</div>
+        <button class="plan-btn red" onclick="openPay()">Ver métodos de pago</button>
+      </div>
+
+    </div>
+    <p class="pricing-note"><i class="fa-solid fa-lock"></i> Pagos 100% seguros vía Stripe · Cancela cuando quieras</p>
+  </div>
+</section>
+
+<!-- TESTIMONIOS -->
+<section class="testimonios" id="testimonios">
+  <div class="section-inner">
+    <div class="section-tag">Testimonios</div>
+    <h2 class="section-title">Traders que no se rindieron</h2>
+    <div class="testi-grid">
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Perdí mi primera cuenta fondeada por operar de más después de una mala racha. Con esto eso ya no puede pasar. El bloqueo es real. Ahora llevo 3 meses en verde."</p>
+        <div class="testi-author"><div class="testi-avatar">C</div><div><strong>Carlos M.</strong><span>Trader FTMO · $25K</span></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"Lo que más me gusta es que no me puedo hacer trampa a mí misma. Ni desde el celular ni desde la laptop. Empecé con el plan gratis y ya subí al Pro. ¡Vale cada peso!"</p>
+        <div class="testi-author"><div class="testi-avatar">A</div><div><strong>Ana P.</strong><span>Trader FundingPips · $10K</span></div></div>
+      </div>
+      <div class="testi-card">
+        <div class="testi-stars">★★★★★</div>
+        <p>"$5.99 al mes es lo mejor que he invertido en mi trading. Me ha salvado la cuenta por lo menos 3 veces este mes. Los que se rinden nunca sabrán lo que es ganar."</p>
+        <div class="testi-author"><div class="testi-avatar">R</div><div><strong>Roberto L.</strong><span>Trader The5%ers · $50K</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="cta-final">
+  <div class="cta-inner">
+    <div class="cta-motive-icon"><i class="fa-solid fa-fire-flame-curved"></i></div>
+    <h2>¿Listo para demostrar<br>que no te rindes?</h2>
+    <p class="cta-sub-quote">"El mercado caerá, el precio subirá, habrá días malos. Pero el trader que persiste, eventualmente gana."</p>
+    <p>Únete a más de 200 traders que ya protegen su capital — y su mentalidad.</p>
+    <button class="btn-hero-red" onclick="openModal('register')">
+      <i class="fa-solid fa-rocket"></i> Crear mi cuenta GRATIS ahora
+    </button>
+    <p class="cta-free-note">Sin tarjeta de crédito · Plan gratuito disponible · Upgrade cuando quieras</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-logo">
+      <div class="nav-logo-icon sm"><i class="fa-solid fa-shield-halved"></i></div>
+      <span>PIERDE EL QUE SE RINDE</span>
+    </div>
+    <p class="footer-motive">"No el que sigue intentando."</p>
+    <p class="footer-copy">© 2025 Pierde El Que Se Rinde. Todos los derechos reservados.</p>
+    <div class="footer-links">
+      <a href="#">Términos</a>
+      <a href="#">Privacidad</a>
+      <a href="#">Contacto</a>
+    </div>
+  </div>
+</footer>
+
+<!-- MODAL AUTH -->
+<div class="modal-overlay" id="modal-overlay" onclick="closeModal()"></div>
+<div class="modal" id="modal">
+  <button class="modal-close" onclick="closeModal()"><i class="fa-solid fa-xmark"></i></button>
+
+  <!-- LOGIN -->
+  <div class="modal-panel" id="modal-login">
+    <div class="modal-logo"><i class="fa-solid fa-shield-halved"></i></div>
+    <h2 class="modal-title">Bienvenido de vuelta</h2>
+    <p class="modal-sub">El que regresa, nunca se rindió.</p>
+    <div class="form-group">
+      <label>Correo electrónico</label>
+      <input type="email" class="form-input" placeholder="tu@email.com" id="login-email">
+    </div>
+    <div class="form-group">
+      <label>Contraseña</label>
+      <div class="input-wrap">
+        <input type="password" class="form-input" placeholder="••••••••" id="login-pass">
+        <button class="eye-btn" onclick="togglePass('login-pass')"><i class="fa-solid fa-eye"></i></button>
+      </div>
+    </div>
+    <div class="form-forgot"><a href="#" onclick="openModal('forgot')">¿Olvidaste tu contraseña?</a></div>
+    <button class="btn-modal-red" onclick="handleLogin()">
+      <span id="login-btn-text">Iniciar sesión</span>
+      <i class="fa-solid fa-arrow-right"></i>
+    </button>
+    <div class="modal-divider"><span>o</span></div>
+    <button class="btn-modal-google" onclick="handleGoogleAuth()">
+      <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.35-8.16 2.35-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+      Continuar con Google
+    </button>
+    <p class="modal-switch">¿No tienes cuenta? <a onclick="openModal('register')">Regístrate gratis</a></p>
+  </div>
+
+  <!-- REGISTER -->
+  <div class="modal-panel hidden" id="modal-register">
+    <div class="modal-logo"><i class="fa-solid fa-shield-halved"></i></div>
+    <h2 class="modal-title">Crea tu cuenta</h2>
+    <p class="modal-sub">El primer paso hacia no rendirse nunca.</p>
+    <div class="form-group">
+      <label>Nombre completo</label>
+      <input type="text" class="form-input" placeholder="Tu nombre" id="reg-name">
+    </div>
+    <div class="form-group">
+      <label>Correo electrónico</label>
+      <input type="email" class="form-input" placeholder="tu@email.com" id="reg-email">
+    </div>
+    <div class="form-group">
+      <label>Contraseña</label>
+      <div class="input-wrap">
+        <input type="password" class="form-input" placeholder="Mínimo 8 caracteres" id="reg-pass">
+        <button class="eye-btn" onclick="togglePass('reg-pass')"><i class="fa-solid fa-eye"></i></button>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Elige tu plan</label>
+      <div class="plan-selector three-plans">
+        <div class="plan-option active" id="plan-free" onclick="selectPlan('free')">
+          <div class="plan-opt-name">Gratis</div>
+          <div class="plan-opt-price free-tag">$0/mes</div>
+          <div class="plan-opt-desc">1 cuenta · $5K–$10K</div>
+        </div>
+        <div class="plan-option" id="plan-starter" onclick="selectPlan('starter')">
+          <div class="plan-opt-name">Starter</div>
+          <div class="plan-opt-price">$5.99/mes</div>
+          <div class="plan-opt-desc">2–3 cuentas · $1K–$50K</div>
+        </div>
+        <div class="plan-option" id="plan-pro" onclick="selectPlan('pro')">
+          <div class="plan-opt-name">Pro</div>
+          <div class="plan-opt-price">$12.99/mes</div>
+          <div class="plan-opt-desc">4–8 cuentas · $50K–$200K</div>
+        </div>
+      </div>
+    </div>
+    <button class="btn-modal-red" onclick="handleRegister()">
+      <span id="reg-btn-text">Crear cuenta gratis</span>
+      <i class="fa-solid fa-arrow-right"></i>
+    </button>
+    <div class="modal-divider"><span>o</span></div>
+    <button class="btn-modal-google" onclick="handleGoogleAuth()">
+      <svg width="18" height="18" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.54 0 6.71 1.22 9.21 3.6l6.85-6.85C35.9 2.38 30.47 0 24 0 14.62 0 6.51 5.38 2.56 13.22l7.98 6.19C12.43 13.72 17.74 9.5 24 9.5z"/><path fill="#4285F4" d="M46.98 24.55c0-1.57-.15-3.09-.38-4.55H24v9.02h12.94c-.58 2.96-2.26 5.48-4.78 7.18l7.73 6c4.51-4.18 7.09-10.36 7.09-17.65z"/><path fill="#FBBC05" d="M10.53 28.59c-.48-1.45-.76-2.99-.76-4.59s.27-3.14.76-4.59l-7.98-6.19C.92 16.46 0 20.12 0 24c0 3.88.92 7.54 2.56 10.78l7.97-6.19z"/><path fill="#34A853" d="M24 48c6.48 0 11.93-2.13 15.89-5.81l-7.73-6c-2.18 1.48-4.97 2.35-8.16 2.35-6.26 0-11.57-4.22-13.47-9.91l-7.98 6.19C6.51 42.62 14.62 48 24 48z"/></svg>
+      Continuar con Google
+    </button>
+    <p class="modal-terms">Al registrarte aceptas nuestros <a href="#">Términos de uso</a> y <a href="#">Política de privacidad</a>.</p>
+    <p class="modal-switch">¿Ya tienes cuenta? <a onclick="openModal('login')">Inicia sesión</a></p>
+  </div>
+
+  <!-- FORGOT -->
+  <div class="modal-panel hidden" id="modal-forgot">
+    <div class="modal-logo"><i class="fa-solid fa-key"></i></div>
+    <h2 class="modal-title">Recuperar contraseña</h2>
+    <p class="modal-sub">Te enviaremos un enlace a tu correo</p>
+    <div class="form-group">
+      <label>Correo electrónico</label>
+      <input type="email" class="form-input" placeholder="tu@email.com">
+    </div>
+    <button class="btn-modal-red">Enviar enlace <i class="fa-solid fa-arrow-right"></i></button>
+    <p class="modal-switch"><a onclick="openModal('login')">← Volver al login</a></p>
+  </div>
+
+  <!-- SUCCESS -->
+  <div class="modal-panel hidden" id="modal-success">
+    <div class="success-icon"><i class="fa-solid fa-circle-check"></i></div>
+    <h2 class="modal-title">¡Cuenta creada!</h2>
+    <p class="modal-sub">¡Bienvenido al equipo de los que no se rinden! Redirigiendo…</p>
+    <div class="progress-bar"><div class="progress-fill" id="progress-fill"></div></div>
+  </div>
+
+</div>
+
+<script src="js/landing.js"></script>
+<script>
+// Update register button text based on plan
+function selectPlan(plan) {
+  document.querySelectorAll('.plan-option').forEach(el => el.classList.remove('active'));
+  const el = document.getElementById('plan-' + plan);
+  if (el) el.classList.add('active');
+  const btn = document.getElementById('reg-btn-text');
+  if (plan === 'free') btn.textContent = 'Crear cuenta gratis';
+  else btn.textContent = 'Crear cuenta y pagar';
+}
+</script>
+
+<style>
+/* ─── PAYMENT MODAL ─── */
+.pay-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) scale(0.95);
+  background: #13131a;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 16px;
+  padding: 2rem 1.75rem 1.5rem;
+  width: min(520px, 95vw);
+  max-height: 90vh;
+  overflow-y: auto;
+  z-index: 1001;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.25s ease;
+}
+.pay-modal.open {
+  opacity: 1;
+  pointer-events: all;
+  transform: translate(-50%, -50%) scale(1);
+}
+.pay-header { text-align:center; margin-bottom:1.5rem; }
+.pay-header i { font-size:2rem; color:#dc2626; margin-bottom:0.5rem; display:block; }
+.pay-header h2 { font-size:1.3rem; color:#fff; margin-bottom:0.25rem; }
+.pay-header p { font-size:0.85rem; color:rgba(255,255,255,0.5); }
+.pay-tabs { display:flex; gap:0.4rem; flex-wrap:wrap; margin-bottom:1.5rem; justify-content:center; }
+.pay-tab {
+  padding: 0.4rem 0.75rem;
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 20px;
+  color: rgba(255,255,255,0.6);
+  font-size: 0.8rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.pay-tab.active, .pay-tab:hover { background:#dc2626; border-color:#dc2626; color:#fff; }
+.pay-panel { display:none; }
+.pay-panel.active { display:block; }
+.pay-method-title { margin-bottom:0.75rem; }
+.pay-badge {
+  display:inline-block;
+  padding: 0.3rem 0.85rem;
+  border-radius: 20px;
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+.pay-badge.yape  { background:rgba(109,40,217,0.2); color:#a78bfa; border:1px solid rgba(109,40,217,0.3); }
+.pay-badge.bcp   { background:rgba(220,38,38,0.15); color:#f87171; border:1px solid rgba(220,38,38,0.3); }
+.pay-badge.usdt  { background:rgba(34,197,94,0.15); color:#4ade80; border:1px solid rgba(34,197,94,0.3); }
+.pay-badge.binance { background:rgba(251,191,36,0.15); color:#fbbf24; border:1px solid rgba(251,191,36,0.3); }
+.pay-badge.lemon { background:rgba(163,230,53,0.15); color:#a3e635; border:1px solid rgba(163,230,53,0.3); }
+.pay-tip { font-size:0.82rem; color:rgba(255,255,255,0.5); margin-bottom:1rem; line-height:1.5; }
+.pay-qr { display:block; margin:0 auto 1rem; width:180px; height:auto; border-radius:10px; border:3px solid rgba(255,255,255,0.08); }
+.pay-info-card { background:rgba(255,255,255,0.04); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:1rem; margin-bottom:1rem; }
+.pay-info-row { display:flex; align-items:center; gap:0.6rem; padding:0.4rem 0; font-size:0.85rem; color:rgba(255,255,255,0.75); flex-wrap:wrap; }
+.pay-info-row i { color:#dc2626; width:16px; flex-shrink:0; }
+.pay-copy { background:rgba(255,255,255,0.07); border:none; border-radius:6px; color:rgba(255,255,255,0.5); padding:0.2rem 0.45rem; cursor:pointer; margin-left:auto; transition:all 0.2s; }
+.pay-copy:hover { background:#dc2626; color:#fff; }
+.pay-wallet-label { font-size:0.75rem; color:rgba(255,255,255,0.4); margin-bottom:0.35rem; text-transform:uppercase; letter-spacing:0.05em; }
+.pay-wallet-addr { font-family:'JetBrains Mono',monospace; font-size:0.78rem; color:#4ade80; word-break:break-all; margin-bottom:0.75rem; background:rgba(34,197,94,0.05); padding:0.6rem; border-radius:8px; border:1px solid rgba(34,197,94,0.15); }
+.pay-copy-full { width:100%; padding:0.5rem; background:rgba(34,197,94,0.1); border:1px solid rgba(34,197,94,0.25); border-radius:8px; color:#4ade80; font-size:0.82rem; font-weight:600; cursor:pointer; transition:all 0.2s; }
+.pay-copy-full:hover { background:rgba(34,197,94,0.2); }
+.pay-warning { background:rgba(251,191,36,0.08); border:1px solid rgba(251,191,36,0.25); border-radius:8px; padding:0.75rem 1rem; font-size:0.8rem; color:#fbbf24; margin-bottom:0.75rem; }
+.pay-warning i { margin-right:0.4rem; }
+.pay-note { background:rgba(255,255,255,0.04); border-radius:8px; padding:0.65rem 0.9rem; font-size:0.78rem; color:rgba(255,255,255,0.45); margin-bottom:1rem; }
+.pay-note i { margin-right:0.4rem; color:#60a5fa; }
+.pay-steps { padding-left:1.25rem; margin:0.75rem 0 1rem; }
+.pay-steps li { font-size:0.83rem; color:rgba(255,255,255,0.65); margin-bottom:0.4rem; line-height:1.5; }
+.pay-whatsapp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  background: #25d366;
+  color: #fff;
+  border-radius: 10px;
+  padding: 0.85rem;
+  font-weight: 700;
+  font-size: 0.95rem;
+  text-decoration: none;
+  margin-top: 0.5rem;
+  transition: background 0.2s;
+}
+.pay-whatsapp:hover { background:#1ebe5d; }
+.pay-whatsapp i { font-size:1.2rem; }
+</style>
+
+<!-- MODAL PAGOS -->
+<div class="modal-overlay" id="pay-overlay" onclick="closePay()"></div>
+<div class="pay-modal" id="pay-modal">
+  <button class="modal-close" onclick="closePay()"><i class="fa-solid fa-xmark"></i></button>
+  <div class="pay-header">
+    <i class="fa-solid fa-shield-halved"></i>
+    <h2>Elige cómo pagar</h2>
+    <p>Realiza tu pago y envía el comprobante por WhatsApp</p>
+  </div>
+
+  <!-- TABS -->
+  <div class="pay-tabs">
+    <button class="pay-tab active" onclick="showPayTab('yape')">🇵🇪 Yape / QR</button>
+    <button class="pay-tab" onclick="showPayTab('bcp')">🏦 BCP</button>
+    <button class="pay-tab" onclick="showPayTab('usdt')">💛 USDT</button>
+    <button class="pay-tab" onclick="showPayTab('binance')">🟡 Binance</button>
+    <button class="pay-tab" onclick="showPayTab('lemon')">🍋 Lemon</button>
+  </div>
+
+  <!-- YAPE / DALE QR -->
+  <div class="pay-panel active" id="pay-yape">
+    <div class="pay-method-title"><span class="pay-badge yape">Yape · Dale · Interoperable</span></div>
+    <p class="pay-tip">Escanea con cualquier app bancaria peruana — funciona con Yape, BCP, Interbank, BBVA y más.</p>
+    
+    <div class="pay-info-row">
+      <i class="fa-solid fa-user"></i>
+      <span><strong>Maycol Jesus Burgos Gervacio</strong></span>
+    </div>
+    <div class="pay-info-row">
+      <i class="fa-solid fa-mobile-screen"></i>
+      <span>Número Yape: <strong>933 063 131</strong></span>
+      <button class="pay-copy" onclick="copyText('933063131')"><i class="fa-solid fa-copy"></i></button>
+    </div>
+    <div class="pay-note"><i class="fa-solid fa-circle-info"></i> Después de pagar, envía tu captura por WhatsApp para activar tu plan.</div>
+  </div>
+
+  <!-- BCP -->
+  <div class="pay-panel" id="pay-bcp">
+    <div class="pay-method-title"><span class="pay-badge bcp">BCP · Transferencia</span></div>
+    <p class="pay-tip">Transfiere desde tu app BCP o cualquier banco vía CCI interbancario.</p>
+    <div class="pay-info-card">
+      <div class="pay-info-row">
+        <i class="fa-solid fa-user"></i>
+        <span>Titular: <strong>Maycol Jesus Burgos Gervacio</strong></span>
+      </div>
+      <div class="pay-info-row">
+        <i class="fa-solid fa-building-columns"></i>
+        <span>Banco: <strong>BCP</strong></span>
+      </div>
+      <div class="pay-info-row">
+        <i class="fa-solid fa-credit-card"></i>
+        <span>Cuenta Soles: <strong>570-72068046-0-59</strong></span>
+        <button class="pay-copy" onclick="copyText('57072068046059')"><i class="fa-solid fa-copy"></i></button>
+      </div>
+      <div class="pay-info-row">
+        <i class="fa-solid fa-arrows-left-right"></i>
+        <span>CCI: <strong>002-570-172068046059-01</strong></span>
+        <button class="pay-copy" onclick="copyText('00257017206804605901')"><i class="fa-solid fa-copy"></i></button>
+      </div>
+    </div>
+    <div class="pay-note"><i class="fa-solid fa-circle-info"></i> Después de transferir, envía tu voucher por WhatsApp para activar tu plan.</div>
+  </div>
+
+  <!-- USDT TRC20 -->
+  <div class="pay-panel" id="pay-usdt">
+    <div class="pay-method-title"><span class="pay-badge usdt">USDT · Red TRC20 (TRON)</span></div>
+    <p class="pay-tip">Envía USDT por la red TRC20. Asegúrate de usar la red correcta para no perder tus fondos.</p>
+    <div class="pay-info-card">
+      <div class="pay-wallet-label">Dirección TRC20:</div>
+      <div class="pay-wallet-addr">TFSPmap4Veg5h3u5S3ug2xpPU6zW5UoV4n</div>
+      <button class="pay-copy-full" onclick="copyText('TFSPmap4Veg5h3u5S3ug2xpPU6zW5UoV4n')"><i class="fa-solid fa-copy"></i> Copiar dirección</button>
+    </div>
+    <div class="pay-warning"><i class="fa-solid fa-triangle-exclamation"></i> Solo envía por red <strong>TRC20</strong>. Enviar por otra red resultará en pérdida de fondos.</div>
+    <div class="pay-note"><i class="fa-solid fa-circle-info"></i> Después de enviar, comparte el TX hash por WhatsApp para activar tu plan.</div>
+  </div>
+
+  <!-- BINANCE PAY -->
+  <div class="pay-panel" id="pay-binance">
+    <div class="pay-method-title"><span class="pay-badge binance">Binance Pay</span></div>
+    <p class="pay-tip">Envía directamente desde tu app Binance usando el ID de pago.</p>
+    <div class="pay-info-card">
+      <div class="pay-info-row">
+        <i class="fa-solid fa-id-badge"></i>
+        <span>Binance ID: <strong>774890041</strong></span>
+        <button class="pay-copy" onclick="copyText('774890041')"><i class="fa-solid fa-copy"></i></button>
+      </div>
+    </div>
+    <ol class="pay-steps">
+      <li>Abre Binance → Pay</li>
+      <li>Toca "Enviar" e ingresa el ID <strong>774890041</strong></li>
+      <li>Elige el monto y confirma</li>
+    </ol>
+    <div class="pay-note"><i class="fa-solid fa-circle-info"></i> Después de pagar, envía captura por WhatsApp para activar tu plan.</div>
+  </div>
+
+  <!-- LEMON -->
+  <div class="pay-panel" id="pay-lemon">
+    <div class="pay-method-title"><span class="pay-badge lemon">Lemon · Red Lemon</span></div>
+    <p class="pay-tip">Escanea el QR desde tu app Lemon para enviar el pago.</p>
+    
+    <div class="pay-info-row" style="justify-content:center;margin-top:0.75rem;">
+      <i class="fa-solid fa-tag"></i>
+      <span>Lemontag: <strong>$maycol2718</strong></span>
+      <button class="pay-copy" onclick="copyText('$maycol2718')"><i class="fa-solid fa-copy"></i></button>
+    </div>
+    <div class="pay-note"><i class="fa-solid fa-circle-info"></i> Después de pagar, envía captura por WhatsApp para activar tu plan.</div>
+  </div>
+
+  <button class="btn-modal-red" style="margin-bottom:0.75rem;width:100%;" onclick="openVoucher()"><i class="fa-solid fa-receipt"></i> Subir comprobante en la web</button>
+  <a class="pay-whatsapp" href="https://wa.me/51933063131?text=Hola%2C%20acabo%20de%20realizar%20mi%20pago%20y%20adjunto%20el%20comprobante." target="_blank">
+    <i class="fa-brands fa-whatsapp"></i> Enviar comprobante por WhatsApp
+  </a>
+</div>
+
+<script>
+function openPay() {
+  document.getElementById('pay-overlay').style.display = 'block';
+  document.getElementById('pay-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closePay() {
+  document.getElementById('pay-overlay').style.display = 'none';
+  document.getElementById('pay-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function showPayTab(tab) {
+  document.querySelectorAll('.pay-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.pay-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('pay-' + tab).classList.add('active');
+  event.target.classList.add('active');
+}
+function copyText(text) {
+  navigator.clipboard.writeText(text).then(() => {
+    const btn = event.target.closest('button');
+    const orig = btn.innerHTML;
+    btn.innerHTML = '<i class="fa-solid fa-check"></i>';
+    btn.style.background = '#22c55e';
+    btn.style.color = '#fff';
+    setTimeout(() => { btn.innerHTML = orig; btn.style.background = ''; btn.style.color = ''; }, 1500);
+  });
+}
+</script>
+
+
+<style>
+/* ─── SOL PRICE ─── */
+.plan-price-sol {
+  font-size: 0.85rem;
+  color: rgba(255,255,255,0.45);
+  margin-top: 0.2rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 500;
+}
+.free-sol { color: rgba(34,197,94,0.6) !important; }
+.sol-sub { font-size: 0.75rem; }
+.sol-val { font-weight: 700; color: rgba(255,255,255,0.6); }
+
+/* ─── FLOATING FAB ─── */
+.support-fab-wrap { position:fixed; bottom:1.5rem; right:1.5rem; z-index:999; display:flex; flex-direction:column; align-items:flex-end; gap:0.5rem; }
+.support-fab { width:54px; height:54px; border-radius:50%; background:#dc2626; border:none; color:#fff; font-size:1.3rem; cursor:pointer; box-shadow:0 4px 20px rgba(220,38,38,0.5); transition:all 0.2s; display:flex; align-items:center; justify-content:center; }
+.support-fab:hover { transform:scale(1.1); }
+.support-fab-menu { display:flex; flex-direction:column; gap:0.5rem; align-items:flex-end; opacity:0; pointer-events:none; transform:translateY(10px); transition:all 0.2s; }
+.support-fab-menu.open { opacity:1; pointer-events:all; transform:translateY(0); }
+.fab-item { display:flex; align-items:center; gap:0.5rem; padding:0.5rem 1rem 0.5rem 0.75rem; border-radius:25px; font-size:0.85rem; font-weight:600; cursor:pointer; border:none; text-decoration:none; white-space:nowrap; box-shadow:0 2px 10px rgba(0,0,0,0.3); transition:transform 0.15s; }
+.fab-item:hover { transform:scale(1.05); }
+.fab-wa { background:#25d366; color:#fff; }
+.fab-email { background:#3b82f6; color:#fff; }
+.fab-chat { background:#8b5cf6; color:#fff; }
+.fab-item i { font-size:1rem; }
+
+/* ─── CHAT WIDGET ─── */
+.chat-widget { position:fixed; bottom:5.5rem; right:1.5rem; width:320px; background:#13131a; border:1px solid rgba(255,255,255,0.1); border-radius:16px; z-index:1000; box-shadow:0 8px 40px rgba(0,0,0,0.5); display:none; flex-direction:column; overflow:hidden; }
+.chat-widget.open { display:flex; }
+.chat-header { background:#1a1a2e; padding:0.85rem 1rem; display:flex; align-items:center; justify-content:space-between; border-bottom:1px solid rgba(255,255,255,0.07); }
+.chat-header-info { display:flex; align-items:center; gap:0.6rem; }
+.chat-avatar { width:34px; height:34px; background:#dc2626; border-radius:50%; display:flex; align-items:center; justify-content:center; color:#fff; font-size:0.9rem; }
+.chat-header-info strong { color:#fff; font-size:0.9rem; display:block; }
+.chat-online { font-size:0.72rem; color:rgba(255,255,255,0.5); display:flex; align-items:center; gap:0.3rem; }
+.chat-header button { background:none; border:none; color:rgba(255,255,255,0.5); cursor:pointer; font-size:1rem; }
+.chat-messages { padding:1rem; max-height:260px; overflow-y:auto; display:flex; flex-direction:column; gap:0.6rem; }
+.chat-msg.bot { align-self:flex-start; }
+.chat-msg.user { align-self:flex-end; }
+.chat-bubble { padding:0.6rem 0.85rem; border-radius:12px; font-size:0.82rem; line-height:1.5; max-width:230px; }
+.chat-msg.bot .chat-bubble { background:rgba(255,255,255,0.07); color:rgba(255,255,255,0.85); border-bottom-left-radius:3px; }
+.chat-msg.user .chat-bubble { background:#dc2626; color:#fff; border-bottom-right-radius:3px; }
+.chat-quick-replies { display:flex; flex-wrap:wrap; gap:0.4rem; margin-top:0.25rem; }
+.chat-quick-replies button { background:rgba(220,38,38,0.15); border:1px solid rgba(220,38,38,0.3); color:#f87171; border-radius:20px; padding:0.3rem 0.7rem; font-size:0.75rem; cursor:pointer; transition:all 0.15s; }
+.chat-quick-replies button:hover { background:#dc2626; color:#fff; }
+.chat-input-wrap { display:flex; gap:0.5rem; padding:0.75rem; border-top:1px solid rgba(255,255,255,0.07); }
+.chat-input-wrap input { flex:1; background:rgba(255,255,255,0.06); border:1px solid rgba(255,255,255,0.1); border-radius:8px; padding:0.5rem 0.75rem; color:#fff; font-size:0.82rem; outline:none; }
+.chat-input-wrap button { background:#dc2626; border:none; border-radius:8px; color:#fff; padding:0.5rem 0.75rem; cursor:pointer; }
+
+/* ─── VOUCHER MODAL ─── */
+.voucher-modal { position:fixed; top:50%; left:50%; transform:translate(-50%,-50%) scale(0.95); background:#13131a; border:1px solid rgba(255,255,255,0.1); border-radius:16px; padding:2rem 1.75rem 1.5rem; width:min(480px,95vw); max-height:90vh; overflow-y:auto; z-index:1002; opacity:0; pointer-events:none; transition:all 0.25s ease; }
+.voucher-modal.open { opacity:1; pointer-events:all; transform:translate(-50%,-50%) scale(1); }
+.voucher-form textarea.form-input { resize:vertical; min-height:80px; }
+.voucher-alt { margin-top:1.25rem; text-align:center; }
+.voucher-alt p { font-size:0.8rem; color:rgba(255,255,255,0.35); margin-bottom:0.6rem; }
+.voucher-alt-btns { display:flex; gap:0.75rem; justify-content:center; }
+.voucher-wa, .voucher-email { display:flex; align-items:center; gap:0.4rem; padding:0.5rem 1rem; border-radius:8px; font-size:0.82rem; font-weight:600; text-decoration:none; transition:opacity 0.2s; }
+.voucher-wa { background:#25d366; color:#fff; }
+.voucher-email { background:#3b82f6; color:#fff; }
+.voucher-wa:hover, .voucher-email:hover { opacity:0.85; }
+</style>
+
+<!-- FLOATING SUPPORT BUTTON -->
+<div class="support-fab-wrap">
+  <div class="support-fab-menu" id="support-menu">
+    <a href="https://wa.me/51933063131?text=Hola%2C%20necesito%20soporte." target="_blank" class="fab-item fab-wa">
+      <i class="fa-brands fa-whatsapp"></i><span>WhatsApp</span>
+    </a>
+    <a href="mailto:maycol2718@gmail.com?subject=Soporte%20-%20Pierde%20El%20Que%20Se%20Rinde" class="fab-item fab-email">
+      <i class="fa-solid fa-envelope"></i><span>Email</span>
+    </a>
+    <button class="fab-item fab-chat" onclick="openChat()">
+      <i class="fa-solid fa-comment-dots"></i><span>Chat</span>
+    </button>
+  </div>
+  <button class="support-fab" id="support-fab" onclick="toggleSupportMenu()">
+    <i class="fa-solid fa-headset" id="fab-icon"></i>
+  </button>
+</div>
+
+<!-- LIVE CHAT WIDGET -->
+<div class="chat-widget" id="chat-widget">
+  <div class="chat-header">
+    <div class="chat-header-info">
+      <div class="chat-avatar"><i class="fa-solid fa-shield-halved"></i></div>
+      <div>
+        <strong>Soporte</strong>
+        <span class="chat-online"><span class="live-dot"></span>En línea</span>
+      </div>
+    </div>
+    <button onclick="closeChat()"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <div class="chat-messages" id="chat-messages">
+    <div class="chat-msg bot">
+      <div class="chat-bubble">👋 ¡Hola! Soy el asistente de soporte. ¿En qué te puedo ayudar hoy?</div>
+    </div>
+    <div class="chat-quick-replies" id="quick-replies">
+      <button onclick="quickReply('¿Cómo conecto mi cuenta MT5?')">¿Cómo conecto MT5?</button>
+      <button onclick="quickReply('¿Cómo realizo el pago?')">¿Cómo pago?</button>
+      <button onclick="quickReply('Tengo un problema con mi cuenta')">Tengo un problema</button>
+      <button onclick="quickReply('¿Cuáles son los planes?')">Ver planes</button>
+    </div>
+  </div>
+  <div class="chat-input-wrap">
+    <input type="text" id="chat-input" placeholder="Escribe tu mensaje..." onkeydown="if(event.key==='Enter')sendChat()">
+    <button onclick="sendChat()"><i class="fa-solid fa-paper-plane"></i></button>
+  </div>
+</div>
+
+<!-- VOUCHER FORM MODAL -->
+<div class="modal-overlay" id="voucher-overlay" onclick="closeVoucher()"></div>
+<div class="voucher-modal" id="voucher-modal">
+  <button class="modal-close" onclick="closeVoucher()"><i class="fa-solid fa-xmark"></i></button>
+  <div class="pay-header">
+    <i class="fa-solid fa-receipt"></i>
+    <h2>Enviar Comprobante</h2>
+    <p>Completa el formulario y nos activaremos tu plan en minutos</p>
+  </div>
+  <div class="voucher-form">
+    <div class="form-group">
+      <label>Nombre completo</label>
+      <input type="text" class="form-input" id="v-name" placeholder="Tu nombre">
+    </div>
+    <div class="form-group">
+      <label>Correo electrónico</label>
+      <input type="email" class="form-input" id="v-email" placeholder="tu@email.com">
+    </div>
+    <div class="form-group">
+      <label>Plan elegido</label>
+      <select class="form-input" id="v-plan">
+        <option value="starter">Starter - $5.99/mes</option>
+        <option value="pro">Pro - $12.99/mes</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Método de pago usado</label>
+      <select class="form-input" id="v-method">
+        <option>Yape / QR Dale</option>
+        <option>BCP Transferencia</option>
+        <option>USDT TRC20</option>
+        <option>Binance Pay</option>
+        <option>Lemon</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label>Número de operación o TX Hash</label>
+      <input type="text" class="form-input" id="v-txid" placeholder="Ej: 12345678 o hash de transacción">
+    </div>
+    <div class="form-group">
+      <label>Mensaje adicional (opcional)</label>
+      <textarea class="form-input" id="v-msg" rows="3" placeholder="Cuéntanos algo más si lo necesitas..."></textarea>
+    </div>
+    <button class="btn-modal-red" onclick="submitVoucher()" id="voucher-btn">
+      <span>Enviar comprobante</span> <i class="fa-solid fa-paper-plane"></i>
+    </button>
+    <div class="voucher-alt">
+      <p>También puedes enviarlo por:</p>
+      <div class="voucher-alt-btns">
+        <a href="https://wa.me/51933063131?text=Hola%2C%20aqui%20mi%20comprobante%20de%20pago." target="_blank" class="voucher-wa"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+        <a href="mailto:maycol2718@gmail.com?subject=Comprobante%20de%20Pago" class="voucher-email"><i class="fa-solid fa-envelope"></i> Email</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── EXCHANGE RATE ──
+async function loadExchangeRate() {
+  try {
+    const res = await fetch('https://api.exchangerate-api.com/v4/latest/USD');
+    const data = await res.json();
+    const rate = data.rates.PEN;
+    document.querySelectorAll('.sol-starter').forEach(el => el.textContent = (5.99 * rate).toFixed(2));
+    document.querySelectorAll('.sol-pro').forEach(el => el.textContent = (12.99 * rate).toFixed(2));
+    // Also update payment modal prices if visible
+    document.querySelectorAll('.pay-sol-rate').forEach(el => el.textContent = rate.toFixed(3));
+  } catch(e) {
+    document.querySelectorAll('.sol-starter').forEach(el => el.textContent = '22.90');
+    document.querySelectorAll('.sol-pro').forEach(el => el.textContent = '49.70');
+  }
+}
+loadExchangeRate();
+
+// ── FAB MENU ──
+function toggleSupportMenu() {
+  const menu = document.getElementById('support-menu');
+  const icon = document.getElementById('fab-icon');
+  menu.classList.toggle('open');
+  icon.className = menu.classList.contains('open') ? 'fa-solid fa-xmark' : 'fa-solid fa-headset';
+}
+
+// ── CHAT ──
+function openChat() {
+  document.getElementById('chat-widget').classList.add('open');
+  document.getElementById('support-menu').classList.remove('open');
+  document.getElementById('fab-icon').className = 'fa-solid fa-headset';
+}
+function closeChat() {
+  document.getElementById('chat-widget').classList.remove('open');
+}
+
+const chatResponses = {
+  'mt5': '¡Claro! Para conectar tu cuenta MT5: Ve al dashboard → "Agregar cuenta" → ingresa tu servidor y credenciales MetaApi. Toma menos de 3 minutos. 🚀',
+  'pago': '¡Puedes pagar por Yape, BCP, USDT TRC20, Binance Pay o Lemon! Haz clic en "Ver métodos de pago" en cualquier plan. 💳',
+  'problema': 'Lamentamos el inconveniente. Por favor escríbenos a maycol2718@gmail.com o por WhatsApp al 933 063 131 y te atendemos de inmediato. 🛠️',
+  'planes': '¡Tenemos 3 planes! ✅ Gratis (1 cuenta, $5K–$10K) ✅ Starter $5.99/mes (2–3 cuentas) ✅ Pro $12.99/mes (4–8 cuentas). ¿Cuál te interesa?',
+};
+
+function quickReply(text) {
+  addUserMsg(text);
+  document.getElementById('quick-replies').remove();
+  setTimeout(() => botReply(text), 600);
+}
+function sendChat() {
+  const input = document.getElementById('chat-input');
+  const text = input.value.trim();
+  if (!text) return;
+  input.value = '';
+  addUserMsg(text);
+  setTimeout(() => botReply(text), 600);
+}
+function addUserMsg(text) {
+  const msgs = document.getElementById('chat-messages');
+  msgs.innerHTML += '<div class="chat-msg user"><div class="chat-bubble">' + text + '</div></div>';
+  msgs.scrollTop = msgs.scrollHeight;
+}
+function botReply(text) {
+  const lower = text.toLowerCase();
+  let reply = '¡Gracias por tu mensaje! Un agente te responderá pronto. También puedes escribirnos directamente al WhatsApp 933 063 131. 😊';
+  if (lower.includes('mt5') || lower.includes('conectar') || lower.includes('cuenta')) reply = chatResponses['mt5'];
+  else if (lower.includes('pago') || lower.includes('pagar') || lower.includes('yape') || lower.includes('bcp')) reply = chatResponses['pago'];
+  else if (lower.includes('problema') || lower.includes('error') || lower.includes('falla')) reply = chatResponses['problema'];
+  else if (lower.includes('plan') || lower.includes('precio') || lower.includes('costo')) reply = chatResponses['planes'];
+  const msgs = document.getElementById('chat-messages');
+  msgs.innerHTML += '<div class="chat-msg bot"><div class="chat-bubble">' + reply + '</div></div>';
+  msgs.scrollTop = msgs.scrollHeight;
+}
+
+// ── VOUCHER ──
+function openVoucher() {
+  document.getElementById('voucher-overlay').style.display = 'block';
+  document.getElementById('voucher-modal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeVoucher() {
+  document.getElementById('voucher-overlay').style.display = 'none';
+  document.getElementById('voucher-modal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function submitVoucher() {
+  const name = document.getElementById('v-name').value.trim();
+  const email = document.getElementById('v-email').value.trim();
+  const plan = document.getElementById('v-plan').value;
+  const method = document.getElementById('v-method').value;
+  const txid = document.getElementById('v-txid').value.trim();
+  const msg = document.getElementById('v-msg').value.trim();
+  if (!name || !email || !txid) {
+    alert('Por favor completa nombre, email y número de operación.');
+    return;
+  }
+  const subject = encodeURIComponent('Comprobante de Pago - Plan ' + plan);
+  const body = encodeURIComponent('Nombre: ' + name + '\nEmail: ' + email + '\nPlan: ' + plan + '\nMétodo: ' + method + '\nN° Operación: ' + txid + '\nMensaje: ' + msg);
+  window.open('mailto:maycol2718@gmail.com?subject=' + subject + '&body=' + body, '_blank');
+  const btn = document.getElementById('voucher-btn');
+  btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> ¡Enviado! Te activamos en minutos.';
+  btn.style.background = '#22c55e';
+  setTimeout(closeVoucher, 3000);
+}
+</script>
+
+</body>
+</html>
